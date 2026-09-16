@@ -1,0 +1,5 @@
+export * from './application/publish-class'
+export * from './entities/class'
+export * from './errors'
+export * from './events/class-published'
+export * from './ports/class-repository'

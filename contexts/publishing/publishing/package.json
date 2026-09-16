@@ -1,0 +1,13 @@
+{
+  "name": "@platform/publishing",
+  "version": "0.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "dependencies": {
+    "@platform/foundation": "workspace:*"
+  },
+  "devDependencies": {
+    "@platform/publishing-in-memory": "workspace:*"
+  }
+}

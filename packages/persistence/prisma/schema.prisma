@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Team {
+  id       String   @id
+  name     String
+  planCode String
+  members  Member[]
+
+  @@map("teams")
+}
+
+model Member {
+  id     String @id
+  teamId String
+  name   String
+  email  String
+  team   Team   @relation(fields: [teamId], references: [id], onDelete: Cascade)
+
+  @@index([teamId])
+  @@map("members")
+}
+
+model Class {
+  id          String    @id
+  teacherId   String
+  title       String
+  status      String
+  publishedAt DateTime?
+
+  @@index([teacherId])
+  @@map("classes")
+}

@@ -1,0 +1,43 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Class {
+  id: ID!
+  publishedAt: DateTime
+  status: ClassStatus!
+  teacherId: ID!
+  title: String!
+}
+
+enum ClassStatus {
+  draft
+  published
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Member {
+  email: String!
+  id: ID!
+  name: String!
+}
+
+type Mutation {
+  publish(classId: ID!): Class!
+}
+
+type Query {
+  class(id: ID!): Class
+  team(id: ID!): Team
+}
+
+type Team {
+  id: ID!
+  members: [Member!]!
+  name: String!
+  planCode: String!
+}

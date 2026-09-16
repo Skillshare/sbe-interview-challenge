@@ -1,0 +1,30 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+*.tsbuildinfo
+
+# generated
+packages/persistence/src/generated/
+
+# local environment
+.env
+.env*.local
+
+# local editor and tool state
+.claude/*
+!.claude/settings.json
+.claude_tmp/
+.claude-tmp/
+CLAUDE.local.md
+.idea/
+.vscode/
+
+# debug logs
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# macOS
+.DS_Store

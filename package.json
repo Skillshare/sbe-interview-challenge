@@ -1,0 +1,31 @@
+{
+  "name": "platform-sandbox",
+  "private": true,
+  "type": "commonjs",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "contexts/*/*"
+  ],
+  "scripts": {
+    "dev": "bun run apps/api/src/main.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "test": "bun test",
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down",
+    "db:migrate": "prisma migrate dev --schema packages/persistence/prisma/schema.prisma",
+    "db:seed": "bun run packages/persistence/prisma/seed.ts",
+    "postinstall": "prisma generate --schema packages/persistence/prisma/schema.prisma"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.0.0",
+    "@types/bun": "latest",
+    "typescript": "~5.9.2",
+    "prisma": "^7.10.0",
+    "@prisma/adapter-pg": "^7.10.0",
+    "pg": "^8.13.0",
+    "@types/pg": "^8.11.0"
+  }
+}
